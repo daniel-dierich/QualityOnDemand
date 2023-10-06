@@ -4,6 +4,7 @@ functionsDir: "./lint_functions"
 rules:
   spelling:
     given: "$.code.API_definitions.qod-api.yaml"
+    severity: error
     then:
       function: "check-spelling-code"
   oas3-api-servers:
