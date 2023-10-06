@@ -1,6 +1,6 @@
 functions:
   - check-spelling-code
-functionsDir: "/lint_functions"
+functionsDir: "./lint_functions"
 rules:
   spelling:
     given: "$.code.API_definitions.qod-api.yaml"
