@@ -1,3 +1,6 @@
+functions:
+  -spell-check
+functionsDir: "/lint_functions"
 rules:
   oas3-api-servers:
     description: "OpenAPI `servers` must be present and non-empty."
