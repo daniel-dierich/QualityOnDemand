@@ -1,11 +1,11 @@
 functions:
-  -spell-check
-functionsDir: "./lint_functions"
+  -check-spelling-code
+functionsDir: "/lint_functions"
 rules:
   spelling:
     given: "$.code.API_definitions.qod-api.yaml"
     then:
-      function: "spell-check"
+      function: "check-spelling-code"
   oas3-api-servers:
     description: "OpenAPI `servers` must be present and non-empty."
     formats: ["oas3"]
