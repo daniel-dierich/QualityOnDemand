@@ -10,11 +10,12 @@ export default (input) => {
     const mistakes = words
       .filter((word) => !exceptions.includes(word))
       .filter((word) => spellChecker.isMisspelled(word));
-  }
+  
 
-  if (mistakes.length > 0) {
-    return [{
-      message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-    }];
+    if (mistakes.length > 0) {
+      return [{
+        message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+      }];
+    }
   }
 };
