@@ -9,6 +9,7 @@ export default (input) => {
     if (spellChecker.isMispelled(x) == true){
       const mis = x;
     }
+  }
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
     .filter((word) => spellChecker.isMisspelled(word));
