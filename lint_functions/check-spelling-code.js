@@ -8,12 +8,12 @@ export default (input) => {
   for (var x in words){
     if (spellChecker.isMisspelled(x) == true){
       const mis = x;
+      console.log(mis);
     }
   }
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
     .filter((word) => spellChecker.isMisspelled(word));
-    console.log(mis);
 
   if (mistakes.length > 0) {
     console.log(mistakes);
