@@ -5,7 +5,7 @@ const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
   console.log("NEW INPUT:       " + input);
-  if (input != undefined){
+  if (typeof input === 'string' || input instanceof String){
     const words = input.replace(/`/g, '').split(separatorsRegex);
     const mistakes = words
       .filter((word) => !exceptions.includes(word))
