@@ -49,7 +49,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Run Spectral Lint with custom rules on api definition
-        run: spectral lint code/API_definitions//qod-api.yaml --verbose --ruleset .spectral.yml
+        run: spectral lint code/API_definitions/qod-api.yaml --verbose --ruleset .spectral.yml
 
       - name: JavaScript Spell Check
         run: "node '${{ github.workspace }}/${{ env.SPELL_CHECK_JS_FILE }}' code/API_definitions/qod-api2.yaml"
