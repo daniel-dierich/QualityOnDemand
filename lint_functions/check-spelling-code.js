@@ -5,10 +5,14 @@ const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
   const words = input.replace(/`/g, '').split(separatorsRegex);
+  for (var x in words){
+    if (spellChecker.isMispelled(x) == true){
+      const mis = x;
+    }
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
     .filter((word) => spellChecker.isMisspelled(word));
-    console.log(mistakes);
+    console.log(mis);
 
   if (mistakes.length > 0) {
     console.log(mistakes);
