@@ -4,7 +4,6 @@ const exceptions = ["Jinja2","asc","bic","iban"];
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
-  console.log("NEW INPUT:       " + input);
   const words = input.replace(/`/g, '').split(separatorsRegex);
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
@@ -12,6 +11,7 @@ export default (input) => {
   
 
   if (mistakes.length > 0) {
+    console.log(mistakes);
     return [{
       message: `Spelling mistakes found: ${mistakes.join(', ')}`,
     }];
