@@ -2,11 +2,37 @@ functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
 rules:
-  spelling:
-    given: "$"
+
+  monite-language-spelling-names:
+    message: "{{error}}"
     severity: error
+    given:
+      - "$.paths.*~"
+      - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].name"
+      - "$..properties.*~"
     then:
-      function: "check-spelling-code"
+      function: check-spelling-code
+
+  monite-language-spelling-texts:
+    message: "{{error}}"
+    severity: warn
+    given:
+      - "$.info.title"
+      - "$.info.summary"
+      - "$.info.description"
+      - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].description"
+      - "$..properties.*.description"
+    then:
+      function: check-spelling-code
+
+  monite-language-spelling-schema-names:
+    message: "{{error}}"
+    severity: warn
+    given:
+      - "$.components.schemas.*~"
+    then:
+      function: check-spelling-code
+
   oas3-api-servers:
     description: "OpenAPI `servers` must be present and non-empty."
     formats: ["oas3"]
