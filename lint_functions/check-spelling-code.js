@@ -6,7 +6,7 @@ const separatorsRegex = /\s/     // any whitespace
 export default (input) => {
   const words = input.replace(/`/g, '').split(separatorsRegex);
   for (var x in words){
-    if (spellChecker.isMispelled(x) == true){
+    if (spellChecker.isMisspelled(x) == true){
       const mis = x;
     }
   }
