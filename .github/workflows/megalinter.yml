@@ -76,7 +76,7 @@ jobs:
 
           # Add the Spectral Linter
       - name: Run Spectral Lint on all files
-        run: spectral lint --format stylish --output .spectral-report.json .spectral.yml --verbose  # Adjust as needed
+        run: spectral lint --format stylish --output .spectral-report.json --verbose  # Adjust as needed
         env:
           NODE_PATH: ./node_modules
           # Upload MegaLinter artifacts
