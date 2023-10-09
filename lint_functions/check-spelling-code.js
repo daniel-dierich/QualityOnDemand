@@ -4,7 +4,7 @@ const exceptions = ["Jinja2","asc","bic","iban"];
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
-  console.log("NEW INPUT:       " + input);
+  console.log("NEW INPUT:       " + String(input));
   if (typeof input === 'string' || input instanceof String){
     const words = input.replace(/`/g, '').split(separatorsRegex);
     const mistakes = words
