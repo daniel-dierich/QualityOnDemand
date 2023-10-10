@@ -11,8 +11,8 @@ export default (input) =>{
         throw err
       }
         var spell = nspell(dict)
-        
-        const words = input.replace(/`/g, '').replace(',','').split(separatorsRegex);
+        var no_special_characters= input.replace(/[^\w\s]/gi, '')
+        const words = no_special_characters.replace(/`/g, '').split(separatorsRegex);
           
         mistakes.push(words
           .filter((word) => !exceptions.includes(word))
