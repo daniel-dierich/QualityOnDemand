@@ -21,7 +21,7 @@ export default (input) =>{
         
         if (mistakes.length > 0) {
             console.log("MISTAKES:        " + mistakes);
-            return [{message: `Spelling mistakes found: ${mistakes}}];
+            return [{message: 'Spelling mistakes found: ' + mistakes}];
         }
     }
 };
