@@ -13,7 +13,7 @@ export default (input) => {
   
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
-    .filter((word) => spellchecker.isMisspelled(word));
+    .filter((word) => dictionary.isMisspelled(word));
 
   if (mistakes.length > 0) {
     console.log(mistakes);
