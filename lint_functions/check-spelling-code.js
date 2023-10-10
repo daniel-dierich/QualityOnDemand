@@ -17,7 +17,8 @@ export default (input) =>{
         mistakes.push(words
           .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
-          .filter((word) => word!=''));
+          .filter((word) => word!='')
+          .filter((word) => word!= undefined));
         
         if (mistakes.length > 0) {
             console.log("MISTAKES:        " + mistakes);
