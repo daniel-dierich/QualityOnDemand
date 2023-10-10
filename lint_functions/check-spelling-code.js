@@ -26,9 +26,12 @@ export default (input) =>{
         if (errors.length > 0) {
             mistakes.push(errors);
             console.log("MISTAKES:        " + mistakes);
-            return [{message: 'Spelling mistakes found: ' + mistakes}];
+            return [{
+              message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+            }];
         }
     }
 console.log("MISTAKES:        " + mistakes);
-return [{message: 'Spelling mistakes found: ' + mistakes}];
+return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+        }];
 };
