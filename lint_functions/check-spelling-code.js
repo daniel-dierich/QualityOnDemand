@@ -1,8 +1,7 @@
-const spellChecker = require('spellchecker');
 var dictionary = require('dictionary-en')
 var nspell = require('nspell')
-const exceptions = ["Jinja2","asc","bic","iban"];
-const separatorsRegex = /\s/     // any whitespace
+var exceptions = ["Jinja2","asc","bic","iban"];
+var separatorsRegex = /\s/     // any whitespace
 var mistakes = [];
 
 export default (input) =>{
@@ -11,7 +10,7 @@ export default (input) =>{
       if (err) {
         throw err
       }
-        var spell = nspell(dicty)
+        var spell = nspell(dict)
         
         const words = input.replace(/`/g, '').split(separatorsRegex);
           
@@ -25,6 +24,6 @@ export default (input) =>{
             message: `Spelling mistakes found: ${mistakes.join(', ')}`,
           }];
         }
+        console.log("MISTAKES:        " + mistakes);
     }
-    console.log("MISTAKES:        " + mistakes);
 };
