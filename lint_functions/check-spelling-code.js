@@ -4,7 +4,7 @@ const exceptions = ["Jinja2","asc","bic","iban"];
 
 
 spellchecker.getDictionary("en-EN", function(err, result) {
-    var dictionary = result;
+    dictionary = result;
 });    
 const separatorsRegex = /\s/     // any whitespace
 
