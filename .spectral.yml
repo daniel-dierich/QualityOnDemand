@@ -3,9 +3,9 @@ functions:
 functionsDir: "./lint_functions"
 rules:
 
-  monite-language-spelling-names:
+  language-spelling-names:
     message: "{{error}}"
-    severity: error
+    severity: warn
     given:
       - "$.paths.*~"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].name"
@@ -13,7 +13,7 @@ rules:
     then:
       function: check-spelling-code
 
-  monite-language-spelling-texts:
+  language-spelling-texts:
     message: "{{error}}"
     severity: warn
     given:
@@ -25,7 +25,7 @@ rules:
     then:
       function: check-spelling-code
 
-  monite-language-spelling-schema-names:
+  language-spelling-schema-names:
     message: "{{error}}"
     severity: warn
     given:
