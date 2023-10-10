@@ -5,18 +5,25 @@ const exceptions = ["Jinja2","asc","bic","iban"];
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) =>{
-    var spell = nspell(dictionary)
-    
-    const words = input.replace(/`/g, '').split(separatorsRegex);
-      
-    const mistakes = words
-      .filter((word) => !exceptions.includes(word))
-      .filter((word) => !spell.correct(word));
-    
-    if (mistakes.length > 0) {
-      console.log("There are Spelling mistakes")
-      return [{
-        message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-      }];
+    dictionary(ondictionary);
+    function ondictionary(err, dict) {
+      if (err) {
+        throw err
+      }
+        var spell = nspell(dicty)
+        
+        const words = input.replace(/`/g, '').split(separatorsRegex);
+          
+        const mistakes = words
+          .filter((word) => !exceptions.includes(word))
+          .filter((word) => !spell.correct(word));
+        
+        if (mistakes.length > 0) {
+          console.log("There are Spelling mistakes")
+          return [{
+            message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+          }];
+        }
     }
+    console.log("MISTAKES:        " + mistakes);
 };
