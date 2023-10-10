@@ -638,7 +638,7 @@ components:
         packetErrorLossRate:
           type: integer
           description: |
-            The expojndsjfential power of the allowable error loss rate 10^(-N).
+            The exponential power of the allowable error loss rate 10^(-N).
             For instance 3 would be an error loss rate of 10 to the power of -3 (0.001)
 
             For 5G network the 3GPP specification TS 23.203 defines the packet error loss rate QCI attribute. It
