@@ -4,8 +4,6 @@ var nspell = require('nspell')
 const exceptions = ["Jinja2","asc","bic","iban"];
 const separatorsRegex = /\s/     // any whitespace
 
-dictionary(ondictionary)
-
 export default (input) =>{
     function ondictionary(err, dict) {
       if (err) {
