@@ -1,25 +1,30 @@
 const spellChecker = require('spellchecker');
-const spellchecker = require('simple-spellchecker');
+var dictionary = require('dictionary-en')
+var nspell = require('nspell')
 const exceptions = ["Jinja2","asc","bic","iban"];
-var dictionary;
-
-
-spellchecker.getDictionary("en-EN", function(err, result) {
-    dictionary = result;
-});    
 const separatorsRegex = /\s/     // any whitespace
 
-export default (input) => {
-  const words = input.replace(/`/g, '').split(separatorsRegex);
-  
-  const mistakes = words
-    .filter((word) => !exceptions.includes(word))
-    .filter((word) => dictionary.isMisspelled(word));
+dictionary(ondictionary)
 
-  if (mistakes.length > 0) {
-    console.log(mistakes);
-    return [{
-      message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-    }];
-  }
+export default (input) =>{
+    function ondictionary(err, dict) {
+      if (err) {
+        throw err
+      }
+
+      var spell = nspell(dict)
+    
+      const words = input.replace(/`/g, '').split(separatorsRegex);
+      
+      const mistakes = words
+        .filter((word) => !exceptions.includes(word))
+        .filter((word) => !spell.correct(word));
+    
+      if (mistakes.length > 0) {
+        console.log(mistakes);
+        return [{
+          message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+        }];
+      }
+    }
 };
