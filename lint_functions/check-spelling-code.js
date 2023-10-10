@@ -16,7 +16,7 @@ export default (input) =>{
         var spell = nspell(dict)
         var no_special_characters= input.replace(/[^\w\s]/gi, '')
         const words = no_special_characters.split(separatorsRegex);
-        
+        console.log(words);
         var errors= words
           .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
