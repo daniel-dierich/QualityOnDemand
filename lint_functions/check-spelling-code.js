@@ -17,12 +17,11 @@ export default (input) =>{
         mistakes.push(words
           .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
-          .filter((word) => word!='')
-          .filter((word) => word!= undefined));
+          .filter((word) => word!=''));
         
         if (mistakes.length > 0) {
             console.log("MISTAKES:        " + mistakes);
-            return [{message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
+            return [{message: `Spelling mistakes found: ${mistakes}}];
         }
     }
 };
