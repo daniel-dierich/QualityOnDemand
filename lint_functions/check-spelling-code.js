@@ -22,6 +22,12 @@ export default (input) =>{
           .filter((word) => !spell.correct(word))
           .filter((word) => word!='')
           .filter((word) => !includesNumber(word)));
+
+        console.log(words
+          .filter((word) => !exceptions.includes(word))
+          .filter((word) => !spell.correct(word))
+          .filter((word) => word!='')
+          .filter((word) => !includesNumber(word)));
         
         if (mistakes.length > 0) {
             console.log("MISTAKES:        " + mistakes);
