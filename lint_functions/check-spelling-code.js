@@ -1,6 +1,9 @@
 const spellChecker = require('spellchecker');
+const spellchecker = require('simple-spellchecker');
 const exceptions = ["Jinja2","asc","bic","iban"];
 
+
+var dictionary = spellchecker.getDictionarySync("fr-FR"); 
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
@@ -8,7 +11,7 @@ export default (input) => {
   
   const mistakes = words
     .filter((word) => !exceptions.includes(word))
-    .filter((word) => spellChecker.isMisspelled(word));
+    .filter((word) => spellchecker.isMisspelled(word));
 
   if (mistakes.length > 0) {
     console.log(mistakes);
