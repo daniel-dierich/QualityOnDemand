@@ -21,7 +21,7 @@ export default (input) =>{
           .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
           .filter((word) => word!='')
-          .filter((word) => !includesNumber(word));
+          .filter((word) => includesNumber(word));
 
         if (errors.length > 0) {
             mistakes.push(errors);
