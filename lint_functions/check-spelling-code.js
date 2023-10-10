@@ -1,6 +1,7 @@
 const spellChecker = require('spellchecker');
 const spellchecker = require('simple-spellchecker');
 const exceptions = ["Jinja2","asc","bic","iban"];
+var dictionary;
 
 
 spellchecker.getDictionary("en-EN", function(err, result) {
