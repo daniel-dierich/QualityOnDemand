@@ -27,6 +27,7 @@ export default (input) =>{
             mistakes.push(errors);
         }
     }
+    console.log(mistakes.length);
     if (mistakes.length > 0){
         return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
     }
