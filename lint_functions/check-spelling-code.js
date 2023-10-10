@@ -3,7 +3,9 @@ const spellchecker = require('simple-spellchecker');
 const exceptions = ["Jinja2","asc","bic","iban"];
 
 
-var dictionary = spellchecker.getDictionarySync("fr-FR"); 
+spellchecker.getDictionary("en-EN", function(err, result) {
+    var dictionary = result;
+});    
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) => {
