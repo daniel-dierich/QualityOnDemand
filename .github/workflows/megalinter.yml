@@ -44,18 +44,18 @@ jobs:
       - name: Install Spectral
         run: npm install -g @stoplight/spectral
 
-      - name: Install 'spellchecker' Module
+      - name: Install 'spellchecker' Module for Megalinter
         run: npm install spellchecker
         working-directory: ${{ github.workspace }}
 
-      - name: Install 'spellchecker' Module2
+      - name: Install 'spellchecker' Module for Spectral
         run: npm install nspell && npm install dictionary-en
         working-directory: ${{ github.workspace }}
 
-      - name: Run Spectral Lint with custom rules on api definition
+      - name: Run Spectral Lint on Api definition
         run: spectral lint code/API_definitions/qod-api.yaml --verbose --ruleset .spectral.yml
 
-      - name: JavaScript Spell Check
+      - name: JavaScript Spell Check by Megalinter
         run: "node '${{ github.workspace }}/${{ env.SPELL_CHECK_JS_FILE }}' code/API_definitions/qod-api2.yaml"
         env:
           NODE_PATH: ./node_modules
@@ -78,12 +78,6 @@ jobs:
           YAML_YAMLLINT_CONFIG_FILE: ".yamllint.yaml"
           JAVA_CHECKSTYLE_CONFIG_FILE: "javalint.xml"
 
-          # Add the Spectral Linter
-      - name: Run Spectral Lint on all files
-        run: spectral lint --format stylish --output .spectral-report.json --verbose  # Adjust as needed
-        env:
-          NODE_PATH: ./node_modules
-          # Upload MegaLinter artifacts
       - name: Archive production artifacts
         if: ${{ success() }} || ${{ failure() }}
         uses: actions/upload-artifact@v3
