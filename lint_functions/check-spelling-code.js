@@ -13,6 +13,7 @@ export default (input) =>{
         var spell = nspell(dict)
         
         const words = input.replace(/`/g, '').split(separatorsRegex);
+        words = words.replace(',', '').split(separatorsRegex);
           
         mistakes.push(words
           .filter((word) => !exceptions.includes(word))
