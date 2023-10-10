@@ -29,5 +29,6 @@ export default (input) =>{
             return [{message: 'Spelling mistakes found: ' + mistakes}];
         }
     }
+console.log("MISTAKES:        " + mistakes);
 return [{message: 'Spelling mistakes found: ' + mistakes}];
 };
