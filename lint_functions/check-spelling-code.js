@@ -19,10 +19,8 @@ export default (input) =>{
           .filter((word) => !spell.correct(word)));
         
         if (mistakes.length > 0) {
-          return [{
-            message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-          }];
+            console.log("MISTAKES:        " + mistakes);
+            return [{message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
         }
-        console.log("MISTAKES:        " + mistakes);
     }
 };
