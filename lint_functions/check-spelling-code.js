@@ -20,7 +20,7 @@ export default (input) =>{
         .filter((word) => !spell.correct(word));
     
       if (mistakes.length > 0) {
-        console.log(mistakes);
+        console.log("There are Spelling mistakes")
         return [{
           message: `Spelling mistakes found: ${mistakes.join(', ')}`,
         }];
