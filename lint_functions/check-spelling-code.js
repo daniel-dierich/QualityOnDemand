@@ -17,19 +17,14 @@ export default (input) =>{
         var no_special_characters= input.replace(/[^\w\s]/gi, '')
         const words = no_special_characters.split(separatorsRegex);
         
-        mistakes.push(words
+        var errors= words
           .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
           .filter((word) => word!='')
-          .filter((word) => !includesNumber(word)));
+          .filter((word) => !includesNumber(word));
 
-        console.log(words
-          .filter((word) => !exceptions.includes(word))
-          .filter((word) => !spell.correct(word))
-          .filter((word) => word!='')
-          .filter((word) => !includesNumber(word)));
-        
-        if (mistakes.length > 0) {
+        if (errors.length > 0) {
+            mistakes.push(errors);
             console.log("MISTAKES:        " + mistakes);
             return [{message: 'Spelling mistakes found: ' + mistakes}];
         }
