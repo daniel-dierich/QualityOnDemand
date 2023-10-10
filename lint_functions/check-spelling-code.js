@@ -13,10 +13,11 @@ export default (input) =>{
         var spell = nspell(dict)
         var no_special_characters= input.replace(/[^\w\s]/gi, '')
         const words = no_special_characters.replace(/`/g, '').split(separatorsRegex);
-          
+        
         mistakes.push(words
           .filter((word) => !exceptions.includes(word))
-          .filter((word) => !spell.correct(word)));
+          .filter((word) => !spell.correct(word))
+          .filter((word) => word!='');
         
         if (mistakes.length > 0) {
             console.log("MISTAKES:        " + mistakes);
