@@ -5,6 +5,7 @@ const exceptions = ["Jinja2","asc","bic","iban"];
 const separatorsRegex = /\s/     // any whitespace
 
 export default (input) =>{
+    dictionary(ondictionary);
     function ondictionary(err, dict) {
       if (err) {
         throw err
