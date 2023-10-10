@@ -49,7 +49,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Install 'spellchecker' Module2
-        run: npm install simple-spellchecker
+        run: npm install nspell && npm install dictionary-en
         working-directory: ${{ github.workspace }}
 
       - name: Run Spectral Lint with custom rules on api definition
