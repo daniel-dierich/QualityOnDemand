@@ -48,6 +48,10 @@ jobs:
         run: npm install spellchecker
         working-directory: ${{ github.workspace }}
 
+      - name: Install 'spellchecker' Module2
+        run: npm install simple-spellchecker
+        working-directory: ${{ github.workspace }}
+
       - name: Run Spectral Lint with custom rules on api definition
         run: spectral lint code/API_definitions/qod-api.yaml --verbose --ruleset .spectral.yml
 
