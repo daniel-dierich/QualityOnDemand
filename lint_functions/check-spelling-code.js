@@ -7,30 +7,32 @@ var mistakes = [];
 function includesNumber(value) {
     return  /\d/.test(value);
 }
-export default (input) =>{
-    dictionary(ondictionary);
-    function ondictionary(err, dict) {
-      if (err) {
-        throw err
-      }
-        var spell = nspell(dict)
-        var no_special_characters= input.replace(/[^\w\s]/gi, '')
-        const words = no_special_characters.split(separatorsRegex);
 
-        var errors= words
-          .filter((word) => exceptions.includes(word))
-          .filter((word) => !spell.correct(word))
-          .filter((word) => word!='')
-          .filter((word) => !includesNumber(word));
-
-        console.log("E:                : "+errors);
-        if (errors.length > 0) {
-            mistakes.push(errors);
-            console.log("M:            : "+mistakes);
-        }
-        console.log(mistakes.length + " ENDE:  "+ mistakes);
-        if (mistakes.length > 0){
-            return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
-        }
+function ondictionary(err, dict) {
+    if (err) {
+      throw err
     }
+    var spell = nspell(dict)
+    var no_special_characters= input.replace(/[^\w\s]/gi, '')
+    const words = no_special_characters.split(separatorsRegex);
+
+    var errors= words
+        .filter((word) => !exceptions.includes(word))
+        .filter((word) => !spell.correct(word))
+        .filter((word) => word!='')
+        .filter((word) => !includesNumber(word));
+
+    console.log("E:                : "+errors);
+    if (errors.length > 0) {
+        mistakes.push(errors);
+        console.log("M:            : "+mistakes);
+    }
+    console.log(mistakes.length + " ENDE:  "+ mistakes);
+    if (mistakes.length > 0){
+        return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
+    }
+}
+
+export default (input) =>{
+    return dictionary(ondictionary);
 };
