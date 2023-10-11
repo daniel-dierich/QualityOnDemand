@@ -13,6 +13,7 @@ export default (input) => {
             if (err) {
                 reject(err);
             }
+            console.log("Input: " + input);
             var spell = nspell(dict);
             var no_special_characters = input.replace(/[^\w\s]/gi, '');
             const words = no_special_characters.split(separatorsRegex);
