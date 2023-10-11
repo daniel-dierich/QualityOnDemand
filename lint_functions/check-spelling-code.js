@@ -8,7 +8,7 @@ function includesNumber(value) {
     return  /\d/.test(value);
 }
 export default (input) =>{
-    dictionary(ondictionary);
+    console.log(ondictionary(dictionary));
     function ondictionary(err, dict) {
         if (err) {
             throw err;
