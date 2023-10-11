@@ -8,7 +8,7 @@ function includesNumber(value) {
     return  /\d/.test(value);
 }
 export default (input) =>{
-    return ondictionary;
+    console.log(dictionary(ondictionary));
     function ondictionary(err, dict) {
       if (err) {
         throw err
@@ -23,12 +23,9 @@ export default (input) =>{
           .filter((word) => word!='')
           .filter((word) => !includesNumber(word));
 
-        console.log("E:                : "+errors);
         if (errors.length > 0) {
             mistakes.push(errors);
-            console.log("M:            : "+mistakes);
         }
-        console.log(mistakes.length + " ENDE:  "+ mistakes);
         if (mistakes.length > 0){
             return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
         }
