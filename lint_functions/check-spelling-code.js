@@ -18,16 +18,18 @@ export default (input) =>{
         const words = no_special_characters.split(separatorsRegex);
 
         var errors= words
-          .filter((word) => !exceptions.includes(word))
+          .filter((word) => exceptions.includes(word))
           .filter((word) => !spell.correct(word))
           .filter((word) => word!='')
-          .filter((word) => includesNumber(word));
+          .filter((word) => !includesNumber(word));
 
+        console.log("E:                : "+errors);
         if (errors.length > 0) {
             mistakes.push(errors);
+            console.log("M:            : "+mistakes);
         }
     }
-    console.log(mistakes.length);
+    console.log(mistakes.length + "ENDE:  "+ mistakes);
     if (mistakes.length > 0){
         return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
     }
