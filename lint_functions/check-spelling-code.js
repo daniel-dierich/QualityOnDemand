@@ -33,4 +33,5 @@ export default (input) =>{
             return mistakes;
             console.log("Errors found: " + mistakes);
         }
+    }
 };
