@@ -28,5 +28,7 @@ export default (input) =>{
             console.log("There was a spelling mistake found: " + errors)
         }
     })
-    sleep(300000).then(() => { return mistakes; });
+    sleep(300000).then(() => { return [{
+      message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+    }] });
 };
