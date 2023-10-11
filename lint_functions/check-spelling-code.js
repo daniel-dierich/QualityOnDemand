@@ -1,7 +1,7 @@
 var dictionary = require('dictionary-en')
 var nspell = require('nspell')
 var exceptions = ['eventId', 'eventType', 'eventTime', /* ...and so on */];
-var separatorsRegex = /\s/; // any whitespace
+var separatorsRegex = /\s/; // any whitespace pipeline
 
 function includesNumber(value) {
     return /\d/.test(value);
