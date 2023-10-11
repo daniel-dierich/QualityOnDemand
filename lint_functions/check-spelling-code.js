@@ -8,23 +8,32 @@ function includesNumber(value) {
 }
 
 
-export default function checkSpelling(input, callback) {
-    dictionary((err, dict) => {
-        if (err) {
-            throw err;
-        }
-        var spell = nspell(dict);
-        var no_special_characters = input.replace(/[^\w\s]/gi, '');
-        const words = no_special_characters.split(separatorsRegex);
-        var mistakes = words
-            .filter((word) => !exceptions.includes(word))
-            .filter((word) => !spell.correct(word))
-            .filter((word) => word != '')
-            .filter((word) => !includesNumber(word));
 
-        if (mistakes.length > 0) {
-            console.log("There was a spelling mistake found: " + mistakes);
-        }
-        callback(mistakes);
+export default function checkSpelling(input) {
+    if (typeof input !== 'string') {
+        // Hier kannst du entscheiden, wie du mit ungültigen Eingaben umgehen möchtest
+        return Promise.reject(new Error('Ungültige Eingabe: Eingabe muss ein String sein.'));
+    }
+
+    return new Promise((resolve, reject) => {
+        dictionary((err, dict) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            var spell = nspell(dict);
+            var no_special_characters = input.replace(/[^\w\s]/gi, '');
+            const words = no_special_characters.split(separatorsRegex);
+            var mistakes = words
+                .filter((word) => !exceptions.includes(word))
+                .filter((word) => !spell.correct(word))
+                .filter((word) => word != '')
+                .filter((word) => !includesNumber(word));
+
+            if (mistakes.length > 0) {
+                console.log("There was a spelling mistake found: " + mistakes);
+            }
+            resolve(mistakes);
+        });
     });
 }
