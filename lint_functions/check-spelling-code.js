@@ -31,5 +31,5 @@ export default (input) =>{
     sleep(300000).then(() => { return [{
       message: `Spelling mistakes found: ${mistakes.join(', ')}`,
     }] });
-    sleep(300000).then(() => { console.log("Spelling mistakes found: " + mistakes });
+    sleep(300000).then(() => { console.log("Spelling mistakes found: " + mistakes )});
 };
