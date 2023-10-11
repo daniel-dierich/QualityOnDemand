@@ -10,6 +10,7 @@ function includesNumber(value) {
 
 export default (input) => {
     var dict = dictionary();
+    sleep(2000);
     if (!dict) {
         throw new Error('Wörterbuch konnte nicht geladen werden.');
     }
