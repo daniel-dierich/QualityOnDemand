@@ -13,6 +13,9 @@ export default (input) =>{
             return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
         }
     function ondictionary(dict) {
+        if (err) {
+            throw err;
+        }
         var spell = nspell(dict)
         var no_special_characters= input.replace(/[^\w\s]/gi, '')
         const words = no_special_characters.split(separatorsRegex);
