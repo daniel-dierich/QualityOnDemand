@@ -7,7 +7,7 @@ function includesNumber(value) {
     return /\d/.test(value);
 }
 
-export default ((input) => {
+export default (input) => {
     return new Promise((resolve, reject) => {
         dictionary((err, dict) => {
             if (err) {
@@ -29,4 +29,4 @@ export default ((input) => {
             }
         });
     });
-});
+};
