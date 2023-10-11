@@ -26,6 +26,7 @@ export default (input) =>{
         if (errors.length > 0) {
             mistakes.push(errors);
         }
+        console.log(mistakes);
         return mistakes;
     }
 };
