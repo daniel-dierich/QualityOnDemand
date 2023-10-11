@@ -18,7 +18,7 @@ export default (input) =>{
         const words = no_special_characters.split(separatorsRegex);
 
         var errors= words
-          .filter((word) => exceptions.includes(word))
+          .filter((word) => !exceptions.includes(word))
           .filter((word) => !spell.correct(word))
           .filter((word) => word!='')
           .filter((word) => !includesNumber(word));
