@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Spectral
-        run: npm install -g @stoplight/spectral
+        run: npm install -g @stoplight/spectral-cli
 
       - name: Install 'nspell' Module
         run: npm install nspell && npm install dictionary-en
