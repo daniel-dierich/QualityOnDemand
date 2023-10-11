@@ -8,9 +8,7 @@ function includesNumber(value) {
     return  /\d/.test(value);
 }
 export default (input) =>{
-    dictionary(var x= ondictionary;);
-    return x;
-    
+    dictionary(ondictionary);
     function ondictionary(err, dict) {
         if (err) {
             throw err;
@@ -28,8 +26,6 @@ export default (input) =>{
         if (errors.length > 0) {
             mistakes.push(errors);
         }
-        if (mistakes.length > 0){
-            return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
-        }
     }
+    return mistakes;
 };
