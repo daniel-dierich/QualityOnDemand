@@ -4,7 +4,11 @@ var exceptions = ['eventId', 'eventType', 'eventTime', 'eventSubscriptionId', 'p
 var separatorsRegex = /\s/     // any whitespace
 var mistakes=[];
 
-dictionary ((input, err, dict) => {
+function includesNumber(value) {
+    return  /\d/.test(value);
+}
+export default (input) =>{
+    dictionary ((err, dict) => {
         if (err) {
             throw err;
         }
@@ -21,12 +25,6 @@ dictionary ((input, err, dict) => {
             mistakes.push(errors);
             console.log("There was a spelling mistake found: " + errors)
         }
-    })
-
-function includesNumber(value) {
-    return  /\d/.test(value);
-}
-export default (input) =>{
-    console.log(mistakes);
-    return mistakes;
+    }
+        conole.log("test: " + mistakes);)
 };
