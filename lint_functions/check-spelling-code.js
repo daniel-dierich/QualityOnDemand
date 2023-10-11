@@ -28,5 +28,5 @@ export default (input) =>{
             console.log("There was a spelling mistake found: " + errors)
         }
     })
-    sleep(300000).then(() => { console.log(mistakes); });
+    sleep(300000).then(() => { return mistakes; });
 };
