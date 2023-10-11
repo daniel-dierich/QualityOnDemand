@@ -27,5 +27,6 @@ export default (input) =>{
             mistakes.push(errors);
         }
     }
-    return mistakes;
 };
+
+return mistakes;
