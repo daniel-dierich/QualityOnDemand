@@ -28,9 +28,9 @@ export default (input) =>{
             mistakes.push(errors);
             console.log("M:            : "+mistakes);
         }
-    }
-    console.log(mistakes.length + "ENDE:  "+ mistakes);
-    if (mistakes.length > 0){
-        return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
+        console.log(mistakes.length + " ENDE:  "+ mistakes);
+        if (mistakes.length > 0){
+            return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
+        }
     }
 };
