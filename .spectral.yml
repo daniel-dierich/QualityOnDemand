@@ -1,3 +1,6 @@
+extends:
+  - "spectral:oas"
+
 functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
@@ -32,17 +35,3 @@ rules:
       - "$.components.schemas.*~"
     then:
       function: check-spelling-code
-
-  oas3-api-servers:
-    description: "OpenAPI `servers` must be present and non-empty."
-    formats: ["oas3"]
-    given: "$"
-    then:
-      field: servers
-      function: schema
-      functionOptions:
-        schema:
-          items:
-            type: object
-          minItems: 1
-          type: array
