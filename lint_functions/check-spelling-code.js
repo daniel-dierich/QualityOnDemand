@@ -8,24 +8,24 @@ function includesNumber(value) {
     return /\d/.test(value);
 }
 
-export default (input) =>{
-    dictionary ((err, dict) => {
-        if (err) {
-            throw err;
-        }
-        var spell = nspell(dict)
-        var no_special_characters= input.replace(/[^\w\s]/gi, '')
-        const words = no_special_characters.split(separatorsRegex);
-        var errors= words
-          .filter((word) => !exceptions.includes(word))
-          .filter((word) => !spell.correct(word))
-          .filter((word) => word!='')
-          .filter((word) => !includesNumber(word));
+export default (input) => {
+    var dict = dictionary();
+    if (!dict) {
+        throw new Error('Wörterbuch konnte nicht geladen werden.');
+    }
 
-        if (errors.length > 0) {
-            mistakes.push(errors);
-            console.log("There was a spelling mistake found: " + errors)
-        }
-    })
-    console.log(mistakes);
-};
+    var spell = nspell(dict);
+    var no_special_characters = input.replace(/[^\w\s]/gi, '');
+    const words = no_special_characters.split(separatorsRegex);
+    var errors = words
+        .filter((word) => !exceptions.includes(word))
+        .filter((word) => !spell.correct(word))
+        .filter((word) => word != '')
+        .filter((word) => !includesNumber(word));
+
+    if (errors.length > 0) {
+        mistakes.push(errors);
+        console.log("Es wurde ein Rechtschreibfehler gefunden: " + errors);
+    }
+    return mistakes;
+}
