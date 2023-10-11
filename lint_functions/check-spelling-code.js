@@ -8,7 +8,7 @@ function includesNumber(value) {
     return  /\d/.test(value);
 }
 export default (input) =>{
-    dictionary ((err, dict) => {
+    console.log("TEST: " + dictionary ((err, dict) => {
         if (err) {
             throw err;
         }
@@ -25,6 +25,5 @@ export default (input) =>{
             mistakes.push(errors);
             console.log("There was a spelling mistake found: " + errors)
         }
-    });
-    console.log(mistakes);
+    });)
 };
