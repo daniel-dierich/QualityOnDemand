@@ -15,13 +15,16 @@ export default (input) => {
             }
             console.log("Input: " + input);
             var spell = nspell(dict);
-            var no_special_characters = String(input).replace(/[^\w\s]/gi, '');
+            if (input != undefined){
+                var no_special_characters = input.replace(/[^\w\s]/gi, '');
+            }
             const words = no_special_characters.split(separatorsRegex);
             var mistakes = words
                 .filter((word) => !exceptions.includes(word))
                 .filter((word) => !spell.correct(word))
                 .filter((word) => word != '')
-                .filter((word) => !includesNumber(word));
+                .filter((word) => !includesNumber(word))
+                .filter((word) => word != undefined);
 
             if (mistakes.length > 0) {
                 resolve(mistakes);
