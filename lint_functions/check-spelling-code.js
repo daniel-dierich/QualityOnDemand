@@ -8,22 +8,26 @@ function includesNumber(value) {
     return /\d/.test(value);
 }
 
-export default (input) =>{
-    dictionary ((err, dict) => {
-        if (err) {
-            throw err;
-        }
-        var spell = nspell(dict)
-        var no_special_characters= input.replace(/[^\w\s]/gi, '')
-        const words = no_special_characters.split(separatorsRegex);
-        var errors= words
-          .filter((word) => !exceptions.includes(word))
-          .filter((word) => !spell.correct(word))
-          .filter((word) => word!='')
-          .filter((word) => !includesNumber(word));
-                if (errors.length > 0) {
-            mistakes.push(errors);
-            console.log("There was a spelling mistake found: " + errors)
-        }
-    })
-};
+export default async function checkSpelling(input) {
+    return new Promise((resolve, reject) => {
+        dictionary((err, dict) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            var spell = nspell(dict);
+            var no_special_characters = input.replace(/[^\w\s]/gi, '');
+            const words = no_special_characters.split(separatorsRegex);
+            var mistakes = words
+                .filter((word) => !exceptions.includes(word))
+                .filter((word) => !spell.correct(word))
+                .filter((word) => word != '')
+                .filter((word) => !includesNumber(word));
+
+            if (mistakes.length > 0) {
+                console.log("There was a spelling mistake found: " + mistakes);
+            }
+            resolve(mistakes);
+        });
+    });
+}
