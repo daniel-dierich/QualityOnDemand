@@ -1,5 +1,3 @@
-extends:
-  - "spectral:oas"
 
 functions:
   - check-spelling-code
