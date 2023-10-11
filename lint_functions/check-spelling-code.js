@@ -25,7 +25,7 @@ export default ((input) => {
             if (mistakes.length > 0) {
                 resolve({ mistakes: mistakes });
             } else {
-                resolve({ mistakes: [] });
+                resolve("There were no mistakes");
             }
         });
     });
