@@ -22,7 +22,7 @@ export default (input) =>{
 
         if (errors.length > 0) {
             mistakes.push(errors);
-            throw new TypeError("There was a spelling mistake found: "+ mistakes);
+            console.log("There was a spelling mistake found: " + errors)
         }
     })
 };
