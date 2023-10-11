@@ -7,8 +7,8 @@ var mistakes = [];
 function includesNumber(value) {
     return  /\d/.test(value);
 }
-export default (input) =>{
-    dictionary(ondictionary);
+
+export dictionary(input, ondictionary) =>{
     function ondictionary(err, dict) {
         if (err) {
             throw err;
