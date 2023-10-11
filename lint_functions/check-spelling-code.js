@@ -12,7 +12,7 @@ export default (input) =>{
     if (mistakes.length > 0){
             return [{ message: `Spelling mistakes found: ${mistakes.join(', ')}`,}];
         }
-    function ondictionary(dict) {
+    function ondictionary(err, dict) {
         if (err) {
             throw err;
         }
