@@ -26,6 +26,7 @@ export default (input) =>{
         if (errors.length > 0) {
             mistakes.push(errors);
             console.log("New Error found and added: " + errors);
+            return mistakes;
         }
     }
 };
