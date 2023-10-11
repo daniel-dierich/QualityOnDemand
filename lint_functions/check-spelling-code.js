@@ -25,6 +25,6 @@ export default (input) =>{
             mistakes.push(errors);
             console.log("There was a spelling mistake found: " + errors)
         }
-    }
-        conole.log("test: " + mistakes);)
+    });
+    console.log(mistakes);
 };
