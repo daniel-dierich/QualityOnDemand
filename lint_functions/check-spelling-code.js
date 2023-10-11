@@ -11,7 +11,6 @@ function includesNumber(value) {
 export default (input) => {
     var dict = dictionary();
     while (!dict) {
-        console.log("wait");
     }
 
     var spell = nspell(dict);
