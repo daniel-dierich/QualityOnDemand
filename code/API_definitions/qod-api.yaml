@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: QoD for enhanced communication dsjfuad
+  title: QoD for enhanced communication
   description: |
     The Quality-On-Demand (QoD) API provides programmable interface for developers and other users (capabilities consumers) to request stable latency or throughput managed by Telco networks without the necessity to have an in-depth knowledge of the 4G/5G system or the overall complexity of the Telecom Systems.
 
@@ -151,7 +151,7 @@ paths:
                     code: INVALID_ARGUMENT
                     message: "Schema validation failed at  ..."
                 DeviceMissing:
-                  summary: Device must be specified dafdsfsa
+                  summary: Device must be specified
                   value:
                     status: 400
                     code: INVALID_ARGUMENT
