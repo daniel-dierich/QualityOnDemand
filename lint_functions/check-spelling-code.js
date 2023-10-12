@@ -24,10 +24,9 @@ export default async function (input) {
           .filter((word) => !word == '')
           .filter((word) => !includesNumber(word))
           .filter((word) => !mistakes.includes(word));
-        if (errors.length > 0) {
+        if (errors.length > 0 && errors =! mistakes) {
             mistakes.push(errors);
             console.log("There was a spelling mistake: " + errors)
-            errors = errors.filter((error) => !errors.includes(error));
         }
     })
     sleep(150000).then(() => {return [{
