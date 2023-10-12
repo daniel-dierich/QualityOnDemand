@@ -25,10 +25,11 @@ export default (input) =>{
           .filter((word) => !includesNumber(word))
           .filter((word) => !mistakes.includes(word));
         if (errors.length > 0) {
+            console.log("There was a spelling mistake: " + error)
             mistakes.push(errors);
         }
     })
-    sleep(300000).then(() => {console.log("There were spelling mistakes: " + mistakes); return [{
+    sleep(300000).then(() => {return [{
       message: `Spelling mistakes found:` + mistakes
     }] });
 };
