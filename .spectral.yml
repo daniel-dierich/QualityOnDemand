@@ -1,3 +1,5 @@
+extends:
+  - "spectral:oas"
 functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
