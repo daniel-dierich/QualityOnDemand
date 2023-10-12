@@ -26,10 +26,8 @@ export default async (input) => {
           .filter((word) => !mistakes.includes(word));
         if (errors.length > 0) {
             mistakes.push(errors);
-            errors = errors.filter((error) => errors.includes(error));
-            return [{
-              message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-            }];
+            console.log("There was a spelling mistake: " + errors)
+            errors = errors.filter((error) => !errors.includes(error));
         }
     })
     sleep(150000).then(() => {return [{
