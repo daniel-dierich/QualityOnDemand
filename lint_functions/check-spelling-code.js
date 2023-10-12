@@ -25,12 +25,11 @@ export default async (input) => {
           .filter((word) => !includesNumber(word))
           .filter((word) => !mistakes.includes(word));
         if (errors.length > 0) {
-            console.log("There was a spelling mistake: " + errors)
             mistakes.push(errors);
             errors = errors.filter((error) => errors.includes(error));
         }
     })
-    sleep(300000).then(() => {return [{
+    sleep(150000).then(() => {return [{
       message: `Spelling mistakes found: ${mistakes.join(', ')}`,
     }];});
 };
