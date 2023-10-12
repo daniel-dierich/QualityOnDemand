@@ -27,7 +27,7 @@ export default (input) =>{
         if (errors.length > 0) {
             console.log("There was a spelling mistake: " + errors)
             mistakes.push(errors);
-            errors = errors.filter((error) => !errors.includes(error));
+            errors = errors.filter((error) => errors.includes(error));
         }
     })
     sleep(300000).then(() => {return [{
