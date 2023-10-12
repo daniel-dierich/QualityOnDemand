@@ -87,10 +87,10 @@ paths:
       tags:
         - QoS sessions
       summary: Creates a new session
-      description: Create QoS Session to anage latency/throughput priorities
+      description: Create QoS Session to manage latency/throughput priorities
       operationId: createSession
       requestBody:
-        description: Prameters to create a new session
+        description: Parameters to create a new session
         content:
           application/json:
             schema:
@@ -233,7 +233,7 @@ paths:
       parameters:
         - name: sessionId
           in: path
-          description: Sessn ID that was obtained from the createSession operation
+          description: Session ID that was obtained from the createSession operation
           required: true
           schema:
             $ref: "#/components/schemas/SessionId"
