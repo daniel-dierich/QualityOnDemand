@@ -30,7 +30,7 @@ export default async function (input) {
             errors = errors.filter((error) => !errors.includes(error));
         }
     })
-    sleep(150000).then(() => {console.log( [{
+    sleep(150000).then(() => {return [{
       message: `Spelling mistakes found: ${mistakes.join(', ')}`,
-    }]);});
+    }];});
 };
