@@ -31,6 +31,6 @@ export default async (input) => {
         }
     })
     sleep(300000).then(() => {return [{
-      message: `Spelling mistakes found:` + mistakes
-    }] });
+      message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+    }];);
 };
