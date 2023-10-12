@@ -1,3 +1,7 @@
+extends:
+  - "spectral:oas"
+  - "spectral.yml"
+
 functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
