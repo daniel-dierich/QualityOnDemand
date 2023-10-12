@@ -27,6 +27,9 @@ export default async (input) => {
         if (errors.length > 0) {
             mistakes.push(errors);
             errors = errors.filter((error) => errors.includes(error));
+            return [{
+              message: `Spelling mistakes found: ${mistakes.join(', ')}`,
+            }];
         }
     })
     sleep(150000).then(() => {return [{
