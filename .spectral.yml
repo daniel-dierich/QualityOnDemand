@@ -1,4 +1,5 @@
-
+extends:
+  - "spectral:oas"
 functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
@@ -7,6 +8,7 @@ rules:
   language-spelling-names:
     message: "{{error}}"
     severity: warn
+    recommended: true
     given:
       - "$.paths.*~"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].name"
@@ -17,6 +19,7 @@ rules:
   language-spelling-texts:
     message: "{{error}}"
     severity: warn
+    recommended: true
     given:
       - "$.info.title"
       - "$.info.summary"
@@ -29,6 +32,7 @@ rules:
   language-spelling-schema-names:
     message: "{{error}}"
     severity: warn
+    recommended: true
     given:
       - "$.components.schemas.*~"
     then:
