@@ -1,11 +1,7 @@
-extends:
-  - "spectral:oas"
-  - "recommended"
 functions:
   - check-spelling-code
 functionsDir: "./lint_functions"
 rules:
-
   language-spelling-names:
     message: "{{error}}"
     severity: warn
@@ -13,7 +9,6 @@ rules:
       - "$.paths.*~"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].name"
       - "$..properties.*~"
-    recommended: true
     then:
       function: check-spelling-code
 
@@ -26,7 +21,6 @@ rules:
       - "$.info.description"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].description"
       - "$..properties.*.description"
-    recommended: true
     then:
       function: check-spelling-code
 
@@ -35,6 +29,5 @@ rules:
     severity: warn
     given:
       - "$.components.schemas.*~"
-    recommended: true
     then:
       function: check-spelling-code
