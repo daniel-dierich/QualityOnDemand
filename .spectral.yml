@@ -8,32 +8,32 @@ rules:
   language-spelling-names:
     message: "{{error}}"
     severity: warn
-    recommended: true
     given:
       - "$.paths.*~"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].name"
       - "$..properties.*~"
+    recommended: true
     then:
       function: check-spelling-code
 
   language-spelling-texts:
     message: "{{error}}"
     severity: warn
-    recommended: true
     given:
       - "$.info.title"
       - "$.info.summary"
       - "$.info.description"
       - "$.paths.*.*.parameters[?(@.in==='query' || @.in==='path' || @.in==='cookie')].description"
       - "$..properties.*.description"
+    recommended: true
     then:
       function: check-spelling-code
 
   language-spelling-schema-names:
     message: "{{error}}"
     severity: warn
-    recommended: true
     given:
       - "$.components.schemas.*~"
+    recommended: true
     then:
       function: check-spelling-code
