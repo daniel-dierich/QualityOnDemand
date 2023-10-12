@@ -10,7 +10,7 @@ function includesNumber(value) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-export default (input) =>{
+export default async function (input) =>{
     dictionary ((err, dict) => {
         if (err) {
             throw err;
