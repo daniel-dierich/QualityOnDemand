@@ -6,7 +6,7 @@ on:
      branches: [master,main]
   push:
      branches:
-       - draft/extending-spectral-with-js-functions # You can specify the branch you want to trigger this on
+       - draft/add-java-script-based-testing-by-spectral # You can specify the branch you want to trigger this on
       
 jobs:
   lint:
