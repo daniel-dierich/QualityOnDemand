@@ -26,7 +26,6 @@ export default async function (input) {
         
         if ((errors.length > 0) && (mistakes[mistakes.length-1] != errors[errors.length-1])) {
             mistakes.push(errors);
-            console.log(errors[0])
             errors = [];
             console.log("There was a spelling mistake: " + mistakes);
         }
