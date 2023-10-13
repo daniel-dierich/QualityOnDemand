@@ -24,7 +24,7 @@ export default async function (input) {
           .filter((word) => !word == '')
           .filter((word) => !includesNumber(word));
         
-        if ((errors.length > 0) && (mistakes[0] != errors[0])) {
+        if ((errors.length > 0) && (mistakes[mistakes.length-1] != errors[errors.length-1])) {
             mistakes.push(errors);
             console.log(errors[0])
             errors = [];
