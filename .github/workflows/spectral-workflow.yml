@@ -3,7 +3,7 @@ name: Spectral Lint
 on:
   # Pull Requests to main
   pull_request:
-     branches: [master,main,draft/spell-checking-using-spectral]
+     branches: [master,main,draft/extending-spectral-with-js-functions]
   push:
      branches:
        - spell-checking-using-spectral # You can specify the branch you want to trigger this on
